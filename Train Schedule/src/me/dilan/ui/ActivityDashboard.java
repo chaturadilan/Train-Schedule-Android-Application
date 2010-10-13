@@ -1,5 +1,6 @@
-package me.dilan;
+package me.dilan.ui;
 
+import me.dilan.R;
 import me.dilan.adapters.DashboardButtonImage;
 import android.app.Activity;
 import android.os.Bundle;
