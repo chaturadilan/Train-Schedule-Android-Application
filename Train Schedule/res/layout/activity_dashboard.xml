@@ -1,16 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<GridView
-  xmlns:android="http://schemas.android.com/apk/res/android"
-	android:id="@+id/act_dash_mainLayout"
-	android:layout_width="fill_parent"
-	android:layout_height="fill_parent"
-    android:padding="10dp"
-    android:verticalSpacing="10dp"
-    android:horizontalSpacing="10dp"
-    android:numColumns="3"
-    android:columnWidth="60dp"
-    android:stretchMode="columnWidth"
-    android:gravity="center"
->
-</GridView>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/home_root"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
 
+	<LinearLayout android:id="@+id/act_dash_main_layout" 
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:orientation="vertical"
+		android:layout_weight="1">
+	
+		<LinearLayout android:id="@+id/dashboard_panel"
+			android:orientation="horizontal"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content">
+			
+			<Button android:id="@+id/dashboard_btn_train_schedule"		    
+			    android:text="@+id/Button01"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content">
+			</Button>
+			
+			<Button android:id="@+id/dashboard_btn_train_delay"
+					android:text="@+id/Button02"				
+					android:layout_width="wrap_content" 
+					android:layout_height="wrap_content">
+			</Button>				
+		</LinearLayout>	
+	</LinearLayout>
+</LinearLayout>

@@ -8,7 +8,7 @@ import android.widget.GridView;
 
 public class ActivityDashboard extends Activity {
     
-	GridView mainLayout;
+	//GridView mainLayout;
 	
 	/** Called when the activity is first created. */
     @Override
@@ -17,7 +17,7 @@ public class ActivityDashboard extends Activity {
         setContentView(R.layout.activity_dashboard);
         
         
-        mainLayout = (GridView) this.findViewById(R.id.act_dash_mainLayout);
-        mainLayout.setAdapter(new DashboardButtonImage(this));
+        //mainLayout = (GridView) this.findViewById(R.id.act_dash_mainLayout);
+       // mainLayout.setAdapter(new DashboardButtonImage(this));
     }
 }
