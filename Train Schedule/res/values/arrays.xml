@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string-array name="act_dash_buttons_text">
+	        <item>Train Schedule</item>
+	        <item>Train Delays</item>        
+	</string-array>
+	
+	<string-array name="act_dash_buttons_image">
+	        <item>icon.png</item>
+	        <item>icon.png</item>        
+	</string-array>
+	
+</resources>

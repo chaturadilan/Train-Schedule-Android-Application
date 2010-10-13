@@ -2,6 +2,8 @@ package me.dilan.webservice;
 
 import java.io.Serializable;
 
+import me.dilan.essentials.Functions;
+
 public class Line implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
