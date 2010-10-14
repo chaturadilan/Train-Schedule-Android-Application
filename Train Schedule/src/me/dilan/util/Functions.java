@@ -1,8 +1,12 @@
-package me.dilan.essentials;
+package me.dilan.util;
+
+import android.app.Activity;
+import android.app.ProgressDialog;
 
 public class Functions {
 	
-	public static String capitalizeFirstLetters (String s) {
+	public static String capitalizeFirstLetters ( String s ) {
+		s = s.toLowerCase();
 	    for (int i = 0; i < s.length(); i++) {
 
 	        if (i == 0) {
@@ -25,6 +29,15 @@ public class Functions {
 
 	    }
 	    return s;
-	}	
+	}
+	
+	public static ProgressDialog getProgressDialog(Activity activity, String message){
+		ProgressDialog progressDialog;
+		progressDialog = new ProgressDialog(activity);				
+		progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+		progressDialog.setMessage(message);
+		progressDialog.show();
+		return progressDialog;
+	}
 
 }

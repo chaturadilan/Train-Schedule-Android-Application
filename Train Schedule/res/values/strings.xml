@@ -2,4 +2,8 @@
 <resources>
     <string name="hello">Hello World, ActivityDashboard!</string>
     <string name="app_name">Train Schedule</string>
+    
+    <string name="dashboard_btn_train_schedule">Train Schedule</string>
+    <string name="dashboard_btn_train_delay">Train Delays</string>
+    
 </resources>

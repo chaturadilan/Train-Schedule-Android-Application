@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/home_root"
+    android:id="@+id/dashboard_root"
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
@@ -17,13 +17,19 @@
 			android:layout_height="wrap_content">
 			
 			<Button android:id="@+id/dashboard_btn_train_schedule"		    
-			    android:text="@+id/Button01"
+			    android:text="@string/dashboard_btn_train_schedule"
+			    style="@style/dashboard_button"
+			    android:drawableTop="@drawable/dashboard_btn_train_schedule"
+				android:onClick="onBtnTrainScheduleClick"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content">
 			</Button>
 			
 			<Button android:id="@+id/dashboard_btn_train_delay"
-					android:text="@+id/Button02"				
+					android:text="@string/dashboard_btn_train_delay"
+					style="@style/dashboard_button"
+					android:drawableTop="@drawable/dashboard_btn_train_schedule"				
+					android:onClick="onBtnTrainDelayClick"
 					android:layout_width="wrap_content" 
 					android:layout_height="wrap_content">
 			</Button>				

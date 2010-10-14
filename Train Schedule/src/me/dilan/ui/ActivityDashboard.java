@@ -1,23 +1,26 @@
 package me.dilan.ui;
 
 import me.dilan.R;
-import me.dilan.adapters.DashboardButtonImage;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.widget.GridView;
+import android.view.View;
 
-public class ActivityDashboard extends Activity {
-    
-	//GridView mainLayout;
+public class ActivityDashboard extends Activity {    
+	
 	
 	/** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dashboard);
-        
-        
-        //mainLayout = (GridView) this.findViewById(R.id.act_dash_mainLayout);
-       // mainLayout.setAdapter(new DashboardButtonImage(this));
+        setContentView(R.layout.activity_dashboard);       
+    }
+    
+    public void onBtnTrainScheduleClick(View v){
+    	startActivity(new Intent(this, ActivitySelectTrainLines.class));
+    }
+    
+    public void onBtnTrainDelayClick(View v){
+    	
     }
 }
