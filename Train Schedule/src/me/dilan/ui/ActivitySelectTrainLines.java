@@ -19,10 +19,12 @@ import android.widget.ListView;
 
 public class ActivitySelectTrainLines extends Activity {
 	
-	ListView mListViewLines;
-	Handler mWebServiceToGetLinesHandler;
+	ListView mListViewLines;	
 	ProgressDialog mProgressDialog;
+	Handler mWSGetTrainLinesHandler;
 	TrainLines mTrainLines;
+	
+	
 	
 	/** Called when the activity is first created. */
     @Override
@@ -30,13 +32,13 @@ public class ActivitySelectTrainLines extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_train_lines);  
         
-        mListViewLines = (ListView) findViewById(R.id.select_train_lines_list_view_lines);
+        mListViewLines = (ListView) findViewById(R.id.select_train_lines_listview_lines);
         
-        mProgressDialog = Functions.getProgressDialog(ActivitySelectTrainLines.this, "Retriving Data");
-        new WebServiceToTrainLines().execute(null,null,null);
+        mProgressDialog = Functions.getProgressDialog(this, getString(R.string.all_retriving_data));
+        new WSGetTrainLines().execute(null,null,null);
         
         
-        mWebServiceToGetLinesHandler = new Handler() { 
+        mWSGetTrainLinesHandler = new Handler() { 
         	public void handleMessage(Message message) {        		
 				mListViewLines.setAdapter(new ArrayAdapter<String>(ActivitySelectTrainLines.this,android.R.layout.simple_list_item_1 , mTrainLines.getNames()));
 				mProgressDialog.dismiss();
@@ -55,16 +57,13 @@ public class ActivitySelectTrainLines extends Activity {
     }
     
     
-    class WebServiceToTrainLines extends AsyncTask<Object, Object, Object>{
+    class WSGetTrainLines extends AsyncTask<Object, Object, Object>{
 
 		@Override
 		protected Object doInBackground(Object... params) {
 			try {					
-					mTrainLines = RailwayWebServiceV2.getLines();
-					Message message = mWebServiceToGetLinesHandler.obtainMessage();
-					Bundle bundle = new Bundle();					
-					message.setData(bundle);
-					mWebServiceToGetLinesHandler.sendMessage(message);
+					mTrainLines = RailwayWebServiceV2.getLines();					
+					mWSGetTrainLinesHandler.sendMessage(mWSGetTrainLinesHandler.obtainMessage());
 			        return null;
 				} catch (Exception e) {
 					// TODO Auto-generated catch block

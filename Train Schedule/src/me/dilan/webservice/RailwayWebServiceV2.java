@@ -1,9 +1,10 @@
 package me.dilan.webservice;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Calendar;
 
 import me.dilan.obj.TrainLines;
+import me.dilan.obj.TrainSchedule;
+import me.dilan.obj.TrainStations;
 import me.dilan.util.Functions;
 
 import org.ksoap2.SoapEnvelope;
@@ -42,8 +43,7 @@ public class RailwayWebServiceV2 {
 		request.addProperty("lang", "en");
 		SoapObject results = callWebService(actionName, request);
 		
-		int length = results.getPropertyCount() + 1;
-		
+		int length = results.getPropertyCount() + 1;		
 		int[] ids = new int[length];
 		String[] names = new String[length];
 		
@@ -61,6 +61,79 @@ public class RailwayWebServiceV2 {
 		trainLines.setNames(names);
 		return trainLines;		
 	}
+	
+	
+	public static TrainStations getTrainStations(int lineId) throws Exception{		
+		String methodName;
+		if(lineId == 0){
+			methodName = "getAllStations";
+		}else{
+			methodName = "getStations";
+		}
+		String actionName = methodName;
+		SoapObject request = new SoapObject(NAMESPACE,methodName);
+		request.addProperty("line", String.valueOf(lineId));
+		request.addProperty("lang", "en");
+		
+		SoapObject results = callWebService(actionName, request);
+		
+		int length = results.getPropertyCount();		
+		String[] codes = new String[length];
+		String[] names = new String[length];
+		
+		
+		for(int i=0; i< results.getPropertyCount();i++)
+		{
+			SoapObject result = (SoapObject) results.getProperty(i);
+			codes[i] = String.valueOf(result.getProperty("StationCode").toString());
+			names[i] = Functions.capitalizeFirstLetters(String.valueOf(result.getProperty("StationNameEng").toString()));				
+		}	
+		
+		TrainStations trainStations = new TrainStations();
+		trainStations.setCodes(codes);
+		trainStations.setNames(names);
+		return trainStations;		
+	}
+	
+	/*	public TrainSchedule getSchedule(String fromStationCode, String toStationCode, String arrivalTime, String depatureTime, String currentDate, String currentTime) throws Exception{
+		
+		if(currentTime == null){
+			//currentTime = String.format("%1$tH:%1$tM:%1$tS", Calendar.getInstance());
+		}
+		
+		
+		String methodName = "getSchedule";
+		String actionName = methodName;
+		SoapObject request = new SoapObject(NAMESPACE,methodName);
+		request.addProperty("StartStationCode", fromStationCode);
+		request.addProperty("EndStationCode", toStationCode);
+		request.addProperty("ArrivalTime", arrivalTime);
+		request.addProperty("DepatureTime", depatureTime);
+		request.addProperty("CurrentDate", currentDate);
+		request.addProperty("CurrentTime", currentTime);
+		request.addProperty("lang", "en");
+		
+		SoapObject results = callWebService(actionName, request);
+		
+			
+		for(int i=0;i<results.getPropertyCount();i++)
+		{
+			SoapObject result = (SoapObject) results.getProperty(i);
+			Schedule schedule = new Schedule();			
+			schedule.setName(String.valueOf(result.getProperty("name").toString()));
+			schedule.setArrivalTime(Functions.getCalndarFromTime(String.valueOf(result.getProperty("arrival").toString())));
+			schedule.setDepartureTime(Functions.getCalndarFromTime(String.valueOf(result.getProperty("departure").toString())));
+			schedule.setArrivalAtDestinationTime(Functions.getCalndarFromTime(String.valueOf(result.getProperty("destination").toString())));
+			schedule.setDelayTime(Functions.getCalndarFromTime(String.valueOf(result.getProperty("delay").toString())));
+			schedule.setComment(String.valueOf(result.getProperty("comment").toString()));
+			schedule.setFdDescription(String.valueOf(result.getProperty("fdescriptioneng").toString()));
+			schedule.setTyDescription(String.valueOf(result.getProperty("tydescriptioneng").toString()));
+			//schedule.setFromStation(fromStation);
+			//schedule.setToStation(toStation);
+			//schedules.add(schedule);			
+		} 
+		return schedules;
+	}*/
 
 	
 

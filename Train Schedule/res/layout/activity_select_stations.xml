@@ -1,9 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/select_train_lines_root"
-    android:orientation="vertical"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent">    	
-<TextView android:text="@+id/TextView01" android:id="@+id/TextView01" android:layout_width="wrap_content" android:layout_height="wrap_content"></TextView>
-<Spinner android:id="@+id/Spinner01" android:layout_width="wrap_content" android:layout_height="wrap_content"></Spinner>
+	android:id="@+id/select_train_lines_root"
+	android:orientation="vertical"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+	
+	<TextView android:id="@+id/select_stations_textview_from_station"
+		android:text="@string/select_stations_textview_from_station"	    
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content">
+	</TextView>
+	<Spinner android:id="@+id/select_stations_spinner_from_station" 
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content">
+	</Spinner>
+	
+	<TextView android:id="@+id/select_stations_textview_to_station"
+		android:text="@string/select_stations_textview_to_station"	    
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content">
+	</TextView>
+	<Spinner android:id="@+id/select_stations_spinner_to_station" 
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content">
+	</Spinner>
+	
+	<LinearLayout android:id="@+id/select_stations_layout_buttons" 
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:orientation="horizontal"
+		android:layout_weight="1">
+		
+		<Button android:id="@+id/select_stations_button_daily_schedule" 
+				android:text="@string/select_stations_button_daily_schedule"
+				android:onClick="onBtnDailyScheduleClick"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content">
+		</Button>
+		
+		<Button  android:id="@+id/select_stations_button_next_schedule"
+				 android:text="@string/select_stations_button_next_schedule"
+				 android:onClick="onBtnNextScheduleClick"
+				 android:layout_width="wrap_content"
+				 android:layout_height="wrap_content">
+		</Button>
+		
+	</LinearLayout>  
+		
 </LinearLayout>

@@ -3,7 +3,14 @@
     <string name="hello">Hello World, ActivityDashboard!</string>
     <string name="app_name">Train Schedule</string>
     
+    <string name="all_retriving_data">Retreving data from Lanka Gate</string>
+    
     <string name="dashboard_btn_train_schedule">Train Schedule</string>
-    <string name="dashboard_btn_train_delay">Train Delays</string>
+    <string name="dashboard_btn_train_delay">Train Delays</string>    
+    
+    <string name="select_stations_textview_from_station">I am at:</string>
+    <string name="select_stations_textview_to_station">I want to go to:</string>
+    <string name="select_stations_button_daily_schedule">Daily Schdule</string>
+    <string name="select_stations_button_next_schedule">Next Schdule</string>
     
 </resources>
