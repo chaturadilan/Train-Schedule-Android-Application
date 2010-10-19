@@ -68,7 +68,12 @@ public class ActivitySelectStations extends Activity{
 		nextScreen.putExtra("toStationCode", mTrainStations.getCodes()[(int)mSpinnerToStation.getSelectedItemId()]);
 		nextScreen.putExtra("toStationName", mTrainStations.getNames()[(int)mSpinnerToStation.getSelectedItemId()]);
 		nextScreen.putExtra("isDailySchedule", isDailySchedule);
-		startActivity(nextScreen);
+		startActivity(nextScreen);		
+	}
+    
+    public void onBackPressed() {		
+		super.onBackPressed();
+		finish();
 	}
     
     

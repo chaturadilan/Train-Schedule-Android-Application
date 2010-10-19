@@ -17,10 +17,12 @@ public class ActivityDashboard extends Activity {
     }
     
     public void onBtnTrainScheduleClick(View v){
-    	startActivity(new Intent(this, ActivitySelectTrainLines.class));
+    	startActivity(new Intent(this, ActivitySelectTrainLines.class));    	
     }
     
     public void onBtnTrainDelayClick(View v){
     	
     }
+    
+
 }

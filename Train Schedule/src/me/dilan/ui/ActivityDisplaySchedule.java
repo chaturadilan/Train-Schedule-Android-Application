@@ -12,15 +12,12 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.TextView;
 
 
@@ -93,6 +90,10 @@ public class ActivityDisplaySchedule extends Activity {
 		}    	
     }
 	
+	public void onBackPressed() {		
+		super.onBackPressed();
+		finish();
+	}
 	
 	class AdapterTrainSchedule extends BaseAdapter {		
 		

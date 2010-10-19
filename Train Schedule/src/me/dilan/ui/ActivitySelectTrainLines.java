@@ -26,6 +26,9 @@ public class ActivitySelectTrainLines extends Activity {
 	
 	
 	
+	
+
+
 	/** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -49,12 +52,18 @@ public class ActivitySelectTrainLines extends Activity {
 			public void onItemClick(AdapterView<?> arg0, View view, int position, long id) {
 				Intent nextScreen = new Intent(ActivitySelectTrainLines.this, ActivitySelectStations.class);
 				nextScreen.putExtra("lineId", mTrainLines.getIds()[position]);
-				ActivitySelectTrainLines.this.startActivity(nextScreen);
+				ActivitySelectTrainLines.this.startActivity(nextScreen);				
 			}
         	
         });
         
     }
+    
+    @Override
+	public void onBackPressed() {		
+		super.onBackPressed();
+		finish();
+	}
     
     
     class WSGetTrainLines extends AsyncTask<Object, Object, Object>{
