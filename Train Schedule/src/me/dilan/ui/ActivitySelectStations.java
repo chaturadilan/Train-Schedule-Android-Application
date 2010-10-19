@@ -63,9 +63,10 @@ public class ActivitySelectStations extends Activity{
     private void onBtnSceduleClick(boolean isDailySchedule){    	
     	Log.v("fromS", mTrainStations.getCodes()[mSpinnerFromStation.getSelectedItemPosition()]);
     	Intent nextScreen = new Intent(this, ActivityDisplaySchedule.class);
-		nextScreen.putExtra("stations", mTrainStations);
-		nextScreen.putExtra("fromSelectedId", mSpinnerFromStation.getSelectedItemId());
-		nextScreen.putExtra("toSelectedId", mSpinnerToStation.getSelectedItemId());
+		nextScreen.putExtra("fromStationCode", mTrainStations.getCodes()[(int)mSpinnerFromStation.getSelectedItemId()]);
+		nextScreen.putExtra("fromStationName", mTrainStations.getNames()[(int)mSpinnerFromStation.getSelectedItemId()]);
+		nextScreen.putExtra("toStationCode", mTrainStations.getCodes()[(int)mSpinnerToStation.getSelectedItemId()]);
+		nextScreen.putExtra("toStationName", mTrainStations.getNames()[(int)mSpinnerToStation.getSelectedItemId()]);
 		nextScreen.putExtra("isDailySchedule", isDailySchedule);
 		startActivity(nextScreen);
 	}

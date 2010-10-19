@@ -1,9 +1,10 @@
 package me.dilan.obj;
 
-public class TrainLines {
+public class TrainLines implements Objects {
 	
 	private  int[] ids;
-	private  String[] names;	
+	private  String[] names;
+	private int count;
 	
 	
 	public int[] getIds() {
@@ -20,6 +21,15 @@ public class TrainLines {
 
 	public void setNames(String[] names) {
 		this.names = names;
+	}
+
+	public int getCount() {		
+		return count;
+	}
+
+	public void setCount(int count) {
+		this.count = count;
+		
 	}	
 
 }
