@@ -119,9 +119,9 @@ public class ActivityDisplaySchedule extends Activity {
 			TextView textViewTrainArrivalAt = (TextView) customTrainSchedule.findViewById(R.id.custom_train_schedule_train_arrival_destination);
 			
 			textViewTrainName.setText(Functions.capitalizeFirstLetters(mtrainSchedules.getTrainNames()[position] + " - " + mtrainSchedules.getTyDescriptions()[position] + " - " + mtrainSchedules.getFdDescriptions()[position]));
-			textViewTrainArrival.setText("train Arrival At: " + mtrainSchedules.getArrivalTimes()[position]);
-			textViewTrainDepature.setText("train Depature At: " + mtrainSchedules.getDepatureTimes()[position]);
-			textViewTrainArrivalAt.setText("train Depature At Destination: " + mtrainSchedules.getArrivalAtDestinationTimes()[position]);
+			textViewTrainArrival.setText("Train Arrival At: " + mtrainSchedules.getArrivalTimes()[position]);
+			textViewTrainDepature.setText("Train Depature At: " + mtrainSchedules.getDepatureTimes()[position]);
+			textViewTrainArrivalAt.setText("Train Depature At Destination: " + mtrainSchedules.getArrivalAtDestinationTimes()[position]);
 			
 			return layoutTrainSchedule;
 		}

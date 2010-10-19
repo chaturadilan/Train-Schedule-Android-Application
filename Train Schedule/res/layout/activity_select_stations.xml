@@ -11,6 +11,7 @@
 		android:layout_height="wrap_content">
 	</TextView>
 	<Spinner android:id="@+id/select_stations_spinner_from_station" 
+			style="@style/activity_select_stations_spinner"
 			android:layout_width="fill_parent"
 			android:layout_height="wrap_content">
 	</Spinner>
@@ -21,6 +22,7 @@
 		android:layout_height="wrap_content">
 	</TextView>
 	<Spinner android:id="@+id/select_stations_spinner_to_station" 
+			style="@style/activity_select_stations_spinner"
 			android:layout_width="fill_parent"
 			android:layout_height="wrap_content">
 	</Spinner>

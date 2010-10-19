@@ -17,4 +17,13 @@
         <item name="android:textColor">@color/foreground1</item>
         <item name="android:background">@null</item>
     </style>
+    
+    <style name="custom_train_schedule_train_name">        
+        <item name="android:textStyle">bold</item> 
+        <item name="android:paddingTop">15dip</item>       
+    </style>
+    
+    <style name="activity_select_stations_spinner">        
+        <item name="android:textSize">@dimen/text_size_medium</item>             
+    </style>
 </resources>
