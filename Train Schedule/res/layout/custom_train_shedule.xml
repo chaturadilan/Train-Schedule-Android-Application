@@ -1,31 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:id="@+id/custom_train_schedule_root" android:orientation="vertical"
-	android:layout_width="fill_parent" android:layout_height="fill_parent">
-
-	<TextView android:id="@+id/custom_train_schedule_train_name"
-			  android:text="@+id/TextView01"
-			  style="@style/custom_train_schedule_train_name"
-			  android:layout_width="wrap_content"
-			   android:layout_height="wrap_content">
-	</TextView>
+	android:id="@+id/custom_train_schedule_root"
+	style="@style/custom_train_schedule_main_root"	
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
 	
-	<TextView android:id="@+id/custom_train_schedule_train_arrival"
-			  android:text="@+id/TextView01"
-			  android:layout_width="wrap_content"
-			   android:layout_height="wrap_content">
-	</TextView>
+	<LinearLayout 
+		android:id="@+id/custom_train_schedule_root"	
+		android:orientation="vertical"
+		android:background="@drawable/train_shedule" 
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent">
 	
-	<TextView android:id="@+id/custom_train_schedule_train_depature"
-			  android:text="@+id/TextView01"
-			  android:layout_width="wrap_content"
-			   android:layout_height="wrap_content">
-	</TextView>
+		<TextView android:id="@+id/custom_train_schedule_train_name"
+				  android:text=""
+				  style="@style/custom_train_schedule_train_name"
+				  android:layout_width="wrap_content"
+				   android:layout_height="wrap_content">
+		</TextView>
+		
+		<TextView android:id="@+id/custom_train_schedule_train_delay"
+				  android:text=""
+				  style="@style/custom_train_schedule_train_delay"
+				  android:layout_width="wrap_content"
+				   android:layout_height="wrap_content">
+		</TextView>
+		
+		<TextView android:id="@+id/custom_train_schedule_train_arrival"
+				  android:text=""
+				  android:layout_width="wrap_content"
+				   android:layout_height="wrap_content">
+		</TextView>
+		
+		<TextView android:id="@+id/custom_train_schedule_train_depature"
+				  android:text=""
+				  android:layout_width="wrap_content"
+				   android:layout_height="wrap_content">
+		</TextView>
+		
+		<TextView android:id="@+id/custom_train_schedule_train_arrival_destination"
+				  android:text=""
+				  android:layout_width="wrap_content"
+				   android:layout_height="wrap_content">
+		</TextView>
 	
-	<TextView android:id="@+id/custom_train_schedule_train_arrival_destination"
-			  android:text="@+id/TextView01"
-			  android:layout_width="wrap_content"
-			   android:layout_height="wrap_content">
-	</TextView>
-	
+	</LinearLayout>
 </LinearLayout>

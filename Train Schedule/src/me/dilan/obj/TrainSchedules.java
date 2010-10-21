@@ -9,6 +9,21 @@ public class TrainSchedules implements Objects {
 	private String[] comments;
 	private String[] fdDescriptions;
 	private String[] tyDescriptions;
+	private String[] startStationName;
+	private String[] endStationName;
+	public String[] getStartStationName() {
+		return startStationName;
+	}
+	public void setStartStationName(String[] startStationName) {
+		this.startStationName = startStationName;
+	}
+	public String[] getEndStationName() {
+		return endStationName;
+	}
+	public void setEndStationName(String[] endStationName) {
+		this.endStationName = endStationName;
+	}
+
 	private int count;
 	
 	

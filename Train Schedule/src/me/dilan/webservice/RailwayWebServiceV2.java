@@ -1,5 +1,6 @@
 package me.dilan.webservice;
 
+import me.dilan.obj.Rates;
 import me.dilan.obj.TrainLines;
 import me.dilan.obj.TrainSchedules;
 import me.dilan.obj.TrainStations;
@@ -122,6 +123,8 @@ public class RailwayWebServiceV2 {
 		trainSchedules.setComments(new String[length]);
 		trainSchedules.setFdDescriptions(new String[length]);
 		trainSchedules.setTyDescriptions(new String[length]);
+		trainSchedules.setStartStationName(new String[length]);
+		trainSchedules.setEndStationName(new String[length]);
 			
 		for(int i=0;i<results.getPropertyCount();i++)
 		{
@@ -130,13 +133,47 @@ public class RailwayWebServiceV2 {
 			trainSchedules.getArrivalTimes()[i] = (String.valueOf(result.getProperty("arrival").toString()));
 			trainSchedules.getDepatureTimes()[i] = (String.valueOf(result.getProperty("departure").toString()));
 			trainSchedules.getArrivalAtDestinationTimes()[i] = (String.valueOf(result.getProperty("destination").toString()));
-			trainSchedules.getDelayTimes()[i] = (String.valueOf(result.getProperty("delay").toString()));
-			trainSchedules.getComments()[i] = (String.valueOf(result.getProperty("comment").toString()));
+			trainSchedules.getDelayTimes()[i] = removeAnyType(String.valueOf(result.getProperty("delay").toString()));
+			trainSchedules.getComments()[i] =  removeAnyType(String.valueOf(result.getProperty("comment").toString()));
 			trainSchedules.getFdDescriptions()[i] = (String.valueOf(result.getProperty("fdescriptioneng").toString()));
 			trainSchedules.getTyDescriptions()[i] = (String.valueOf(result.getProperty("tydescriptioneng").toString()));
+			trainSchedules.getStartStationName()[i] = (String.valueOf(result.getProperty("frtrstationnameeng").toString()));
+			trainSchedules.getEndStationName()[i] = (String.valueOf(result.getProperty("totrstationnameeng").toString()));
 		} 
 		return trainSchedules;
 	} 
+	
+	
+	public static Rates getRates(String fromStationCode, String toStationCode) throws Exception{
+		
+		String methodName = "getRates";
+		String actionName = methodName;
+		SoapObject request = new SoapObject(NAMESPACE,methodName);
+		request.addProperty("StartStationCode", fromStationCode);
+		request.addProperty("EndStationCode", toStationCode);		
+		
+		SoapObject results = callWebService(actionName, request);
+		
+		int length = results.getPropertyCount();
+		Rates rates = new Rates();
+		rates.setPrices(new float[length]);
+		
+		for(int i=0;i<results.getPropertyCount();i++)
+		{
+			SoapObject result = (SoapObject) results.getProperty(i);			
+			rates.getPrices()[i] = (Float.valueOf(result.getProperty("price").toString()));
+		}		
+		
+		return rates;
+	}
+	
+	public static String removeAnyType(String type){
+		if (type.equals("anyType{}")){
+			return null;
+		}else{
+			return type;
+		}
+	}
 
 	
 
