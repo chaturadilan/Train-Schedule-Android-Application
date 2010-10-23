@@ -5,6 +5,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
     
+   <include layout="@layout/include_titlebar"/>
   
 	<ListView android:id="@+id/select_train_lines_listview_lines"
     	 android:layout_width="fill_parent"

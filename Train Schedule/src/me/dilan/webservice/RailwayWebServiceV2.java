@@ -1,5 +1,6 @@
 package me.dilan.webservice;
 
+import me.dilan.obj.Delays;
 import me.dilan.obj.Rates;
 import me.dilan.obj.TrainLines;
 import me.dilan.obj.TrainSchedules;
@@ -83,7 +84,7 @@ public class RailwayWebServiceV2 {
 		trainStations.setNames(new String[length]);
 		
 		
-		for(int i=0; i< results.getPropertyCount();i++)
+		for(int i=0;  i < length; i++)
 		{
 			SoapObject result = (SoapObject) results.getProperty(i);
 			trainStations.getCodes()[i] = String.valueOf(result.getProperty("StationCode").toString());
@@ -126,7 +127,7 @@ public class RailwayWebServiceV2 {
 		trainSchedules.setStartStationName(new String[length]);
 		trainSchedules.setEndStationName(new String[length]);
 			
-		for(int i=0;i<results.getPropertyCount();i++)
+		for(int i=0; i < length; i++)
 		{
 			SoapObject result = (SoapObject) results.getProperty(i);			
 			trainSchedules.getTrainNames()[i] = (String.valueOf(result.getProperty("name").toString()));
@@ -158,13 +159,51 @@ public class RailwayWebServiceV2 {
 		Rates rates = new Rates();
 		rates.setPrices(new float[length]);
 		
-		for(int i=0;i<results.getPropertyCount();i++)
+		for(int i=0; i < length; i++)
 		{
 			SoapObject result = (SoapObject) results.getProperty(i);			
 			rates.getPrices()[i] = (Float.valueOf(result.getProperty("price").toString()));
 		}		
 		
 		return rates;
+	}
+	
+	public static Delays getDelays(String currentDate, String currentTime) throws Exception{
+		
+		String methodName = "getDelaySnippet";
+		String actionName = methodName;
+		SoapObject request = new SoapObject(NAMESPACE,methodName);		
+		request.addProperty("cDate", currentDate);
+		request.addProperty("cTime", currentTime);
+		request.addProperty("lang", "en");
+		
+		SoapObject results = callWebService(actionName, request);
+		
+		int length = results.getPropertyCount();		
+		Delays delays = new Delays();
+		delays.setCount(length);
+		delays.setTrainNo(new String[length]);
+		delays.setDelayTime(new String[length]);
+		delays.setEndtime(new String[length]);
+		delays.setComments(new String[length]);
+		delays.setFromStationName(new String[length]);
+		delays.setToStationName(new String[length]);
+		delays.setOpatetionType(new String[length]);
+	
+		for(int i=0; i < length; i++)
+		{
+			SoapObject result = (SoapObject) results.getProperty(i);			
+			delays.getTrainNo()[i] = (String.valueOf(result.getProperty("TrainNo").toString()));
+			delays.getDelayTime()[i] = (String.valueOf(result.getProperty("delayTime").toString()));
+			delays.getEndtime()[i] = (String.valueOf(result.getProperty("endtime").toString()));
+			delays.getComments()[i] = removeAnyType(String.valueOf(result.getProperty("comment").toString()));
+			delays.getFromStationName()[i] = Functions.capitalizeFirstLetters(String.valueOf(result.getProperty("FrTrStationNameEng").toString()));
+			delays.getToStationName()[i] = Functions.capitalizeFirstLetters(String.valueOf(result.getProperty("ToTrStationNameEng").toString()));
+			delays.getOpatetionType()[i] = removeAnyType(String.valueOf(result.getProperty("opatetiontype").toString()));
+			
+		}		
+		
+		return delays;
 	}
 	
 	public static String removeAnyType(String type){

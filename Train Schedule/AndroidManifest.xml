@@ -14,7 +14,7 @@
         </activity>
         
         <activity
-            android:name=".ui.ActivitySelectTrainLines"
+            android:name=".ui.ActivitySelectTrainLines"                       
             android:theme="@style/Theme.AppLight"
             android:label="@string/app_name">
         </activity>
@@ -27,6 +27,12 @@
         
         <activity
             android:name=".ui.ActivityDisplaySchedule"
+            android:theme="@style/Theme.AppLight"
+            android:label="@string/app_name">
+        </activity>
+        
+        <activity
+            android:name=".ui.ActivityDisplayTrainDelays"
             android:theme="@style/Theme.AppLight"
             android:label="@string/app_name">
         </activity>

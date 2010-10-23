@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+		android:id="@+id/custom_train_delay_root"	
+		android:orientation="vertical"		
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent">
+		
+		<View 
+			android:layout_width="fill_parent"
+		 	android:layout_height="2dip"
+		  	android:background="#FF000000"> 
+		 </View>
+		 	
+		<TextView android:id="@+id/custom_train_delay_train_name"
+				  android:text=""
+				  style="@style/custom_train_schedule_train_name"
+				  android:layout_width="wrap_content"
+				   android:layout_height="wrap_content">
+		</TextView>
+		
+		<TextView android:id="@+id/custom_train_delay_train_delay"
+				  android:text=""
+				  style="@style/custom_train_schedule_train_delay"
+				  android:layout_width="wrap_content"
+				   android:layout_height="wrap_content">
+		</TextView>		
+	
+</LinearLayout>

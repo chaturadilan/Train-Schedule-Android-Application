@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:id="@+id/custom_train_schedule_root"
-	style="@style/custom_train_schedule_main_root"	
-	android:layout_width="fill_parent"
-	android:layout_height="fill_parent">
-	
-	<LinearLayout 
+<LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
 		android:id="@+id/custom_train_schedule_root"	
-		android:orientation="vertical"
-		android:background="@drawable/train_shedule" 
+		android:orientation="vertical"		
 		android:layout_width="fill_parent"
 		android:layout_height="fill_parent">
-	
+		
+		<View 
+			android:layout_width="fill_parent"
+		 	android:layout_height="1dp"
+		  	android:background="#FF000000"> 
+		 </View>
+		 	
 		<TextView android:id="@+id/custom_train_schedule_train_name"
 				  android:text=""
 				  style="@style/custom_train_schedule_train_name"
@@ -44,5 +43,4 @@
 				   android:layout_height="wrap_content">
 		</TextView>
 	
-	</LinearLayout>
 </LinearLayout>

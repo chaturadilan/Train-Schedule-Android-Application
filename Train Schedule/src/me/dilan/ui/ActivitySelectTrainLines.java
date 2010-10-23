@@ -7,6 +7,8 @@ import me.dilan.webservice.RailwayWebServiceV2;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -22,11 +24,7 @@ public class ActivitySelectTrainLines extends Activity {
 	ListView mListViewLines;	
 	ProgressDialog mProgressDialog;
 	Handler mWSGetTrainLinesHandler;
-	TrainLines mTrainLines;
-	
-	
-	
-	
+	static TrainLines mTrainLines;	
 
 
 	/** Called when the activity is first created. */
@@ -34,11 +32,15 @@ public class ActivitySelectTrainLines extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_train_lines);  
+       
         
         mListViewLines = (ListView) findViewById(R.id.select_train_lines_listview_lines);
         
-        mProgressDialog = Functions.getProgressDialog(this, getString(R.string.all_retriving_data));
-        new WSGetTrainLines().execute(null,null,null);
+        
+        
+       mProgressDialog = Functions.getProgressDialog(this, getString(R.string.all_retriving_data));
+       new WSGetTrainLines().execute(null,null,null);
+           
         
         
         mWSGetTrainLinesHandler = new Handler() { 
@@ -65,15 +67,18 @@ public class ActivitySelectTrainLines extends Activity {
 		finish();
 	}
     
+      
     
     class WSGetTrainLines extends AsyncTask<Object, Object, Object>{
 
 		@Override
 		protected Object doInBackground(Object... params) {
-			try {					
-					mTrainLines = RailwayWebServiceV2.getLines();					
-					mWSGetTrainLinesHandler.sendMessage(mWSGetTrainLinesHandler.obtainMessage());
-			        return null;
+			try {				
+					
+						mTrainLines = RailwayWebServiceV2.getLines();				
+						mWSGetTrainLinesHandler.sendMessage(mWSGetTrainLinesHandler.obtainMessage());
+					   
+					return null;
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

@@ -5,6 +5,8 @@
 	android:layout_width="fill_parent"
 	android:layout_height="fill_parent">
 	
+	 <include layout="@layout/include_titlebar"/>
+	
 	<TextView android:id="@+id/select_stations_textview_from_station"
 		android:text="@string/select_stations_textview_from_station"	    
 		android:layout_width="wrap_content"

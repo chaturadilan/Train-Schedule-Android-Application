@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dispaly_train_delays_root"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"> 
+    
+     <include layout="@layout/include_titlebar"/>   
+  
+	 <GridView
+		android:id="@+id/dispaly_train_delays_gridview_delays"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"    
+	    android:horizontalSpacing="10dp"
+	    android:numColumns="1"    
+	    android:stretchMode="columnWidth"
+	    android:gravity="center">
+	</GridView>	    
+
+	 	
+</LinearLayout>

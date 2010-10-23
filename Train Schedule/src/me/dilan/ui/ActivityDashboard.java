@@ -21,7 +21,7 @@ public class ActivityDashboard extends Activity {
     }
     
     public void onBtnTrainDelayClick(View v){
-    	
+    	startActivity(new Intent(this, ActivityDisplayTrainDelays.class));
     }
     
 

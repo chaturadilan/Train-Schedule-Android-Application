@@ -10,24 +10,20 @@ import me.dilan.webservice.RailwayWebServiceV2;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
-import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.View.OnLongClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 
 
@@ -35,11 +31,11 @@ public class ActivityDisplaySchedule extends Activity {
 
 	GridView mGridViewSchedules;
 	
-	String fromStationCode;
-	String fromStationName;
-	String toStationCode;
-	String toStationName;
-	boolean isDailySchedule;
+	String mFromStationCode;
+	String mFromStationName;
+	String mToStationCode;
+	String mToStationName;
+	boolean mIsDailySchedule;
 	
 	TrainSchedules mtrainSchedules;
 	Rates rates;
@@ -55,11 +51,11 @@ public class ActivityDisplaySchedule extends Activity {
         mGridViewSchedules =  (GridView) findViewById(R.id.display_schedule_gridview_schedules);
                 
         
-        fromStationCode = getIntent().getExtras().getString("fromStationCode");
-        fromStationName = getIntent().getExtras().getString("fromStationName");
-        toStationCode = getIntent().getExtras().getString("toStationCode");
-        toStationName = getIntent().getExtras().getString("toStationName");
-        isDailySchedule = getIntent().getExtras().getBoolean("isDailySchedule");
+        mFromStationCode = getIntent().getExtras().getString("fromStationCode");
+        mFromStationName = getIntent().getExtras().getString("fromStationName");
+        mToStationCode = getIntent().getExtras().getString("toStationCode");
+        mToStationName = getIntent().getExtras().getString("toStationName");
+        mIsDailySchedule = getIntent().getExtras().getBoolean("isDailySchedule");
         
         
         mProgressDialog = Functions.getProgressDialog(this, getString(R.string.all_retriving_data));
@@ -110,18 +106,18 @@ public class ActivityDisplaySchedule extends Activity {
 
 		@Override
 		protected Object doInBackground(Object... params) {
-			try {				
+			try {	  		
 				Calendar now = Calendar.getInstance();
 				String todayDate = String.format("%1$tY-%1$tm-%1$te", now);
 				String todayTime = String.format("%1$tH:%1$tM:%1$tS", now);
 				
-				if(isDailySchedule){					
-					mtrainSchedules = RailwayWebServiceV2.getSchedule(fromStationCode, toStationCode, "00:00:00", "23:59:59", todayDate, todayTime);
+				if(mIsDailySchedule){					
+					mtrainSchedules = RailwayWebServiceV2.getSchedule(mFromStationCode, mToStationCode, "00:00:00", "23:59:59", todayDate, todayTime);
 				}else{
-					mtrainSchedules = RailwayWebServiceV2.getSchedule(fromStationCode, toStationCode, todayTime, "23:59:59", todayDate, todayTime);
+					mtrainSchedules = RailwayWebServiceV2.getSchedule(mFromStationCode, mToStationCode, todayTime, "23:59:59", todayDate, todayTime);
 				}
 				
-				rates = RailwayWebServiceV2.getRates(fromStationCode, toStationCode);
+				rates = RailwayWebServiceV2.getRates(mFromStationCode, mToStationCode);
 				
 				mWSGetTrainScheduleHandler.sendMessage(mWSGetTrainScheduleHandler.obtainMessage());
 					

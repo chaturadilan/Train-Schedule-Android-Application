@@ -5,6 +5,8 @@
 	android:layout_width="fill_parent"
 	android:layout_height="fill_parent">
 	
+	 <include layout="@layout/include_titlebar"/>
+	 
 	 <GridView	xmlns:android="http://schemas.android.com/apk/res/android"
 		android:id="@+id/display_schedule_gridview_schedules"
 		android:layout_width="fill_parent"
