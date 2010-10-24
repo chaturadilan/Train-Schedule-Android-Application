@@ -67,6 +67,10 @@ public class ActivitySelectTrainLines extends Activity {
 		finish();
 	}
     
+    public void onHomeClick(View v) {			
+    	startActivity(new Intent(this, ActivityDashboard.class));
+    	finish();    
+	}
       
     
     class WSGetTrainLines extends AsyncTask<Object, Object, Object>{

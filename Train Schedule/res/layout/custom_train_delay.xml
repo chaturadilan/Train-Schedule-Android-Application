@@ -7,8 +7,8 @@
 		
 		<View 
 			android:layout_width="fill_parent"
-		 	android:layout_height="2dip"
-		  	android:background="#FF000000"> 
+		 	android:layout_height="1dp"
+		  	android:background="#FFC0C0C0"> 
 		 </View>
 		 	
 		<TextView android:id="@+id/custom_train_delay_train_name"

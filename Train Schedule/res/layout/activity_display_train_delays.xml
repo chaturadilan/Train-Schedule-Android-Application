@@ -6,6 +6,12 @@
     android:layout_height="fill_parent"> 
     
      <include layout="@layout/include_titlebar"/>   
+     
+     <TextView android:id="@+id/dispaly_train_delays_no_delays"
+		android:text="No train delays at the moment"	    
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:visibility="gone">
+	</TextView>
   
 	 <GridView
 		android:id="@+id/dispaly_train_delays_gridview_delays"

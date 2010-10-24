@@ -21,8 +21,13 @@ public class ActivityDashboard extends Activity {
     }
     
     public void onBtnTrainDelayClick(View v){
-    	startActivity(new Intent(this, ActivityDisplayTrainDelays.class));
+    	startActivity(new Intent(this, ActivityDisplayTrainDelays.class)); 
     }
     
+    public void onHomeClick(View v) {			
+    	startActivity(new Intent(this, ActivityDashboard.class)); 
+    	finish();     
+	}
+       
 
 }

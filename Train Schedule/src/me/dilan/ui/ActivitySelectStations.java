@@ -42,7 +42,7 @@ public class ActivitySelectStations extends Activity{
         mProgressDialog = Functions.getProgressDialog(this, getString(R.string.all_retriving_data));
         new WSGetTrainStations().execute(null, null, null);
         
-        mWSGetTrainStationsHandler = new Handler() { 
+        mWSGetTrainStationsHandler = new Handler() {  
         	public void handleMessage(Message message) {
         		ArrayAdapter<String> stationsAdapter = new ArrayAdapter<String>(ActivitySelectStations.this, android.R.layout.simple_spinner_item, mTrainStations.getNames());
         		mSpinnerFromStation.setAdapter(stationsAdapter);
@@ -59,6 +59,11 @@ public class ActivitySelectStations extends Activity{
     public void onBtnNextScheduleClick(View v){
     	onBtnSceduleClick(false);
     }
+    
+    public void onHomeClick(View v) {			
+    	startActivity(new Intent(this, ActivityDashboard.class));
+    	finish();    
+	}
     
     private void onBtnSceduleClick(boolean isDailySchedule){    	
     	Log.v("fromS", mTrainStations.getCodes()[mSpinnerFromStation.getSelectedItemPosition()]);

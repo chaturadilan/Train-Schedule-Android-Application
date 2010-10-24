@@ -14,6 +14,7 @@ import me.dilan.webservice.RailwayWebServiceV2;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -31,7 +32,8 @@ import android.widget.TextView;
 
 public class ActivityDisplayTrainDelays extends Activity {
 	
-	GridView mListViewDelays;	
+	GridView mListViewDelays;
+	TextView mTextViewNoDelays;
 	ProgressDialog mProgressDialog;
 	Handler mWSGetTrainDelaysHandler;
 	Delays mDelays;
@@ -41,13 +43,19 @@ public class ActivityDisplayTrainDelays extends Activity {
         setContentView(R.layout.activity_display_train_delays);
         
         mListViewDelays = (GridView) findViewById(R.id.dispaly_train_delays_gridview_delays);
+        mTextViewNoDelays =  (TextView) findViewById(R.id.dispaly_train_delays_no_delays);
         
         mProgressDialog = Functions.getProgressDialog(this, getString(R.string.all_retriving_data));
         new WSGetTrainDelays().execute(null,null,null);
         
         mWSGetTrainDelaysHandler = new Handler() { 
-         	public void handleMessage(Message message) {        		
-    				mListViewDelays.setAdapter(new AdapterTrainDelay());
+         	public void handleMessage(Message message) { 
+         		if(mDelays.getCount() <= 0){
+         			mTextViewNoDelays.setVisibility(View.VISIBLE);
+        		}else{
+        			mListViewDelays.setAdapter(new AdapterTrainDelay());
+        		}        		
+    				
     				mProgressDialog.dismiss();
     	        }
          };
@@ -60,7 +68,7 @@ public class ActivityDisplayTrainDelays extends Activity {
 		protected Object doInBackground(Object... params) {
 				try {				
 					Calendar now = Calendar.getInstance();
-					String todayDate = "2010-10-18";// String.format("%1$tY-%1$tm-%1$te", now);
+					String todayDate = String.format("%1$tY-%1$tm-%1$te", now);
 					String todayTime = String.format("%1$tH:%1$tM:%1$tS", now);						
 					mDelays = RailwayWebServiceV2.getDelays(todayDate, todayTime);
 					mWSGetTrainDelaysHandler.sendMessage(mWSGetTrainDelaysHandler.obtainMessage());
@@ -77,6 +85,11 @@ public class ActivityDisplayTrainDelays extends Activity {
 	public void onBackPressed() {		
 		super.onBackPressed();
 		finish();
+	}
+	
+	public void onHomeClick(View v) {			
+    	startActivity(new Intent(this, ActivityDashboard.class));
+    	finish();    
 	}
 	
 	

@@ -10,6 +10,7 @@ import me.dilan.webservice.RailwayWebServiceV2;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -30,6 +31,7 @@ import android.widget.TextView;
 public class ActivityDisplaySchedule extends Activity {	
 
 	GridView mGridViewSchedules;
+	TextView mTextViewNoShedule;
 	
 	String mFromStationCode;
 	String mFromStationName;
@@ -49,7 +51,7 @@ public class ActivityDisplaySchedule extends Activity {
         setContentView(R.layout.activity_display_schedule);
         
         mGridViewSchedules =  (GridView) findViewById(R.id.display_schedule_gridview_schedules);
-                
+        mTextViewNoShedule =  (TextView) findViewById(R.id.display_schedule_no_shedule);
         
         mFromStationCode = getIntent().getExtras().getString("fromStationCode");
         mFromStationName = getIntent().getExtras().getString("fromStationName");
@@ -63,8 +65,13 @@ public class ActivityDisplaySchedule extends Activity {
         
         mWSGetTrainScheduleHandler = new Handler() { 
         	public void handleMessage(Message message) {
-        		mGridViewSchedules.setAdapter(new AdapterTrainSchedule());
-        		mProgressDialog.dismiss();
+        		if(mtrainSchedules.getCount() <= 0){
+        			mTextViewNoShedule.setVisibility(View.VISIBLE);
+        		}else{
+        			mGridViewSchedules.setAdapter(new AdapterTrainSchedule());
+        		}
+        		
+        		mProgressDialog.dismiss(); 
  	        }
         };      
 	    
@@ -132,6 +139,11 @@ public class ActivityDisplaySchedule extends Activity {
 	public void onBackPressed() {		
 		super.onBackPressed();
 		finish();
+	}
+	
+	public void onHomeClick(View v) {			
+    	startActivity(new Intent(this, ActivityDashboard.class));
+    	finish();    
 	}
 	
 	class AdapterTrainSchedule extends BaseAdapter {		
