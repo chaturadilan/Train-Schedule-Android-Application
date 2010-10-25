@@ -1,3 +1,10 @@
+/**
+* @copyright	Copyright (C) 2010 - 2010 Chatura Dilan Perera
+* @license		GNU/GPL, see LICENSE.php
+* This Application is released on behalf of ICTA (Information and Communication Technology Agency of Sri Lanka)
+* to the public under the GNU General Public License
+*/
+
 package me.dilan.ui;
 
 import me.dilan.R;
@@ -7,8 +14,6 @@ import me.dilan.webservice.RailwayWebServiceV2;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
-import android.content.res.Configuration;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;

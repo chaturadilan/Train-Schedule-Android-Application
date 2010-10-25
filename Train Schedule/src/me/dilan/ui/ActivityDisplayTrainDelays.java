@@ -1,3 +1,10 @@
+/**
+* @copyright	Copyright (C) 2010 - 2010 Chatura Dilan Perera
+* @license		GNU/GPL, see LICENSE.php
+* This Application is released on behalf of ICTA (Information and Communication Technology Agency of Sri Lanka)
+* to the public under the GNU General Public License
+*/
+
 package me.dilan.ui;
 
 import java.util.Calendar;
@@ -6,9 +13,6 @@ import java.util.Map;
 
 import me.dilan.R;
 import me.dilan.obj.Delays;
-import me.dilan.obj.TrainLines;
-import me.dilan.ui.ActivityDisplaySchedule.AdapterTrainSchedule;
-import me.dilan.ui.ActivitySelectTrainLines.WSGetTrainLines;
 import me.dilan.util.Functions;
 import me.dilan.webservice.RailwayWebServiceV2;
 import android.app.Activity;
