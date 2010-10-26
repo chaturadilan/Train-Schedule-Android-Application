@@ -88,24 +88,24 @@ public class ActivityDisplaySchedule extends Activity {
 	
 	 public void onCreateContextMenu(ContextMenu menu, View v,ContextMenuInfo menuInfo) {  
 		 super.onCreateContextMenu(menu, v, menuInfo);  
-	     menu.setHeaderTitle("Actions");  
-	     menu.add(0, v.getId(), 0, "Ticket Prices"); 
+	     menu.setHeaderTitle(getString(R.string.display_schedule_actions));  
+	     menu.add(0, v.getId(), 0, getString(R.string.display_schedule_ticket_prices)); 
 	       
 	 } 
 	 
 	 public boolean onContextItemSelected(MenuItem item) {
-		 if(item.getTitle()=="Ticket Prices"){
+		 if(item.getTitle()== getString(R.string.display_schedule_ticket_prices)){
 			 AlertDialog.Builder alertbox = new AlertDialog.Builder(this);
 			 
 	            StringBuilder pricesAlert = new StringBuilder("");
 			 	int i = 0;
 	            for(float price: rates.getPrices()){
-	            	pricesAlert.append("Class " + ++i + ": Rs. " +  price +"\n");
+	            	pricesAlert.append(getString(R.string.display_schedule_train_class) + ++i + getString(R.string.display_schedule_train_rs) +  price +"\n");
 	            }
 			 
-	            alertbox.setTitle("Ticket Prices");
+	            alertbox.setTitle(getString(R.string.display_schedule_ticket_prices));
 	            alertbox.setMessage(pricesAlert);	           
-	            alertbox.setNeutralButton("Ok", null); 
+	            alertbox.setNeutralButton(getString(R.string.display_schedule_train_ok), null); 
 	 
 	            alertbox.show();  
 	            return true;
@@ -180,14 +180,14 @@ public class ActivityDisplaySchedule extends Activity {
 			
 			textViewTrainName.setText(Functions.capitalizeFirstLetters(mtrainSchedules.getTrainNames()[position] + " - " + mtrainSchedules.getTyDescriptions()[position] + " - " + mtrainSchedules.getFdDescriptions()[position] +" ("+ mtrainSchedules.getStartStationName()[position] + " - "+ mtrainSchedules.getEndStationName()[position] + ")"));
 			if(mtrainSchedules.getDelayTimes()[position] != null){
-				textViewTrainDelay.setText("Train is delayed for " + mtrainSchedules.getDelayTimes()[position] + ". Comment: " +  mtrainSchedules.getComments()[position]);
+				textViewTrainDelay.setText(getString(R.string.display_schedule_train_delayed_for) + mtrainSchedules.getDelayTimes()[position] + getString(R.string.display_schedule_train_comments) +  mtrainSchedules.getComments()[position]);
 			}else{
 				textViewTrainDelay.setVisibility(View.GONE);
 			}
 			
-			textViewTrainArrival.setText("Train Arrival At: " + mtrainSchedules.getArrivalTimes()[position]);
-			textViewTrainDepature.setText("Train Depature At: " + mtrainSchedules.getDepatureTimes()[position]);
-			textViewTrainArrivalAt.setText("Train Arrival At Destination: " + mtrainSchedules.getArrivalAtDestinationTimes()[position]);
+			textViewTrainArrival.setText(getString(R.string.display_schedule_train_arrival_at) + mtrainSchedules.getArrivalTimes()[position]);
+			textViewTrainDepature.setText(getString(R.string.display_schedule_train_depature_at) + mtrainSchedules.getDepatureTimes()[position]);
+			textViewTrainArrivalAt.setText(getString(R.string.display_schedule_train_arrival_at_des) + mtrainSchedules.getArrivalAtDestinationTimes()[position]);
 			
 			ActivityDisplaySchedule.this.registerForContextMenu(layoutTrainSchedule);
 									

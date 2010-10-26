@@ -22,4 +22,17 @@
     <string name="select_stations_textview_to_station">I want to go to:</string>
     <string name="select_stations_button_daily_schedule">Daily Schdule</string>
     <string name="select_stations_button_next_schedule">Next Schdule</string> 
+    
+    <string name="display_schedule_actions">Actions</string> 
+    <string name="display_schedule_ticket_prices">Ticket Prices</string>
+    <string name="display_schedule_train_delayed_for">Train delayed for </string>
+    <string name="display_schedule_train_class">Class </string>
+    <string name="display_schedule_train_rs">: Rs. </string>
+    <string name="display_schedule_train_comments">. Comment: </string>
+    <string name="display_schedule_train_ok">OK</string>
+    <string name="display_schedule_train_arrival_at">Train Arrival At: </string>
+    <string name="display_schedule_train_depature_at">Train Depature At: </string>
+    <string name="display_schedule_train_arrival_at_des">Train Arrival At Destination: </string>
+    
+    
 </resources>
