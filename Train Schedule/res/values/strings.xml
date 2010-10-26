@@ -13,7 +13,7 @@
     <string name="hello">Hello World, ActivityDashboard!</string>
     <string name="app_name">Train Schedule</string>
     
-    <string name="all_retriving_data">Retreving data from Lanka Gate</string>
+    <string name="all_retriving_data">Retrieving data data from Lanka Gate</string>
     
     <string name="dashboard_btn_train_schedule">Train Schedule</string>
     <string name="dashboard_btn_train_delay">Train Delays</string>    
@@ -33,6 +33,11 @@
     <string name="display_schedule_train_arrival_at">Train Arrival At: </string>
     <string name="display_schedule_train_depature_at">Train Depature At: </string>
     <string name="display_schedule_train_arrival_at_des">Train Arrival At Destination: </string>
+    <string name="display_schedule_no_shedule">Sorry No Trains Available</string>
     
+    
+    <string name="display_delays_train_delayed_for">Train delayed for </string>
+    <string name="display_delays_train_comments">Comment: </string>
+    <string name="dispaly_train_delays_no_delays">No train delays at the moment</string>
     
 </resources>

@@ -8,16 +8,12 @@
 package me.dilan.ui;
 
 import java.util.Calendar;
-import java.util.List;
-import java.util.Map;
-
 import me.dilan.R;
 import me.dilan.obj.Delays;
 import me.dilan.util.Functions;
 import me.dilan.webservice.RailwayWebServiceV2;
 import android.app.Activity;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -26,12 +22,9 @@ import android.os.Message;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.SimpleExpandableListAdapter;
 import android.widget.TextView;
 
 public class ActivityDisplayTrainDelays extends Activity {
@@ -120,28 +113,14 @@ class AdapterTrainDelay extends BaseAdapter {
 			TextView textViewTrainDelay = (TextView) customTrainDelay.findViewById(R.id.custom_train_delay_train_delay);
 						
 			textViewTrainName.setText(mDelays.getTrainNo()[position] + " (" + mDelays.getFromStationName()[position] + " - " + mDelays.getToStationName()[position] + ")");
-			textViewTrainDelay.setText("Train is delayed for " + mDelays.getDelayTime()[position] + ".");
+			textViewTrainDelay.setText(getString(R.string.display_delays_train_delayed_for) + mDelays.getDelayTime()[position] + ".");
 			if(mDelays.getComments()[position] != null){
-				textViewTrainDelay.setText(textViewTrainDelay.getText() + " Comment: " + mDelays.getComments()[position]);
+				textViewTrainDelay.setText(textViewTrainDelay.getText() + getString(R.string.display_delays_train_comments) + mDelays.getComments()[position]);
 			}
 			                                            
 			return layoutTrainSchedule;
 		}
 
 	}
-
-class DelayViewAdapter extends SimpleExpandableListAdapter{
-
-	public DelayViewAdapter(Context context,
-			List<? extends Map<String, ?>> groupData, int groupLayout,
-			String[] groupFrom, int[] groupTo,
-			List<? extends List<? extends Map<String, ?>>> childData,
-			int childLayout, String[] childFrom, int[] childTo) {
-		super(context, groupData, groupLayout, groupFrom, groupTo, childData,
-				childLayout, childFrom, childTo);
-		// TODO Auto-generated constructor stub
-	}	
-}
-
 
 }

@@ -18,7 +18,7 @@
      <include layout="@layout/include_titlebar"/>   
      
      <TextView android:id="@+id/dispaly_train_delays_no_delays"
-		android:text="No train delays at the moment"	    
+		android:text="@string/dispaly_train_delays_no_delays"	    
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content" android:visibility="gone">
 	</TextView>
