@@ -122,7 +122,7 @@ public class ActivityDisplaySchedule extends Activity {
 		protected Object doInBackground(Object... params) {
 			try {	  		
 				Calendar now = Calendar.getInstance();
-				String todayDate = String.format("%1$tY-%1$tm-%1$te", now);
+				String todayDate = String.format("%1$tY-%1$tm-%1$td", now);
 				String todayTime = String.format("%1$tH:%1$tM:%1$tS", now);
 				
 				if(mIsDailySchedule){					
