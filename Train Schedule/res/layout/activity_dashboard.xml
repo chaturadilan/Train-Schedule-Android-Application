@@ -41,6 +41,7 @@
 			<Button android:id="@+id/dashboard_btn_train_delay"
 					android:text="@string/dashboard_btn_train_delay"
 					style="@style/dashboard_button"
+					android:visibility="gone"
 					android:drawableTop="@drawable/dashboard_btn_train_delay"				
 					android:onClick="onBtnTrainDelayClick"
 					android:layout_width="wrap_content" 
@@ -52,7 +53,7 @@
 	 <ImageView android:id="@+id/footer"    	
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
+        android:layout_centerVertical="true"        
         android:clickable="true"       
         android:src="@drawable/icta">
    </ImageView> 

@@ -22,7 +22,13 @@
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content" android:visibility="gone">
 	</TextView>
-	 
+
+	 <TextView
+	     android:id="@+id/display_schedule_textViewTitle"
+	     android:layout_width="fill_parent"
+	     android:layout_height="wrap_content"
+	     android:background="#fff5f5f5"
+	     android:text="" />
 
 	 <GridView	android:id="@+id/display_schedule_gridview_schedules"
 		android:layout_width="fill_parent"
